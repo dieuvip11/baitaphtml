@@ -1,21 +1,20 @@
 ﻿
-      
-    class Tranhoangdieuhangso
-    {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Tran Hoang Dieu");
-            Console.WriteLine("2021050131");            
-            //khai bao hang so pi
-            const double pi = 3.14159;            
-            double r;
-            Console.Write("Nhap ban kinh: ");
-            r = Convert.ToDouble(Console.ReadLine());
-            double dien_tich = pi * r * r;
-            Console.WriteLine("\nBan kinh: {0}, Dien tich: {1}", r, dien_tich);
-            Console.ReadLine();            
-            Console.ReadKey();
-        }
-    }
+
+Console.WriteLine("Tran Hoang Dieu");
+Console.WriteLine("2021050131");
+//phep chia lay nguyen va lay du 2 so
+int a, b;
+Console.Write("gia tri cua a la: ");
+a = Convert.ToInt32(Console.ReadLine());
+Console.Write("gia tri cua b la: ");
+b = Convert.ToInt32(Console.ReadLine());
+int c = a - b;
+int d = a * b;
+int e = a / b;
+int f = a % b;
+Console.WriteLine("gia tri cua hieu = " + c);
+Console.WriteLine("gia tri cua tich = " + d);
+Console.WriteLine("gia tri cua thuong = " + e);
+Console.WriteLine("gia tri cua so du = " + f);
 
 
