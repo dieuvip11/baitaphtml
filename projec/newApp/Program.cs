@@ -1,4 +1,4 @@
-﻿using NewApp.Models;
-Employee Dieu = new Employee ();
-Dieu.NhapTT();
-Dieu.XuatTT();
+﻿﻿using newApp.models;
+Employee emp = new Employee();
+emp.Nhap();
+emp.Xuat();
