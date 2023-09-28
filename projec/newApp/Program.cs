@@ -1,17 +1,15 @@
-﻿﻿using newApp.models;
+﻿﻿using System.Collections;
+using newApp.models;
 
-int n;
-System.Console.WriteLine("n = ");
-n = Convert.ToInt32(Console.ReadLine());
-int[ ] intArray = new int[ n ] ;
-
-for (int i = 0; i <intArray.Length; i++)
+ArrayList psLish = new ArrayList();
+for (int i= 0 ; i< 3; i++) 
 {
-    
-    intArray[i] = i/2;
-
+    Person ps =new Person ();
+    ps.Nhap();
+    psLish.Add(ps);
 }
+    foreach(Person d in psLish){
+        System.Console.WriteLine(d.PersonID + " - " + d.FullName);
 
-for (int i = 0; i< intArray.Length; i++){
-    System.Console.WriteLine("Mang["+i+"]= " + intArray[i]);
-}
+    }
+
