@@ -11,7 +11,7 @@ namespace demomvc.Controllers
         }
         [HttpPost]
         public IActionResult Index(Person ps){
-            string str = "Hello"+ ps.PersonID+"-"+ps.fullname.ToUpper();
+            string str = "Hello"+ ps.PersonID+"-"+ps.FullName.ToUpper();
             return View();
     }
 
