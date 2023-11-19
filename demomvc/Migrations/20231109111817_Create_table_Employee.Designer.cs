@@ -10,8 +10,8 @@ using demomvc.Data;
 namespace demomvc.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20231102063236_Create_table_Person")]
-    partial class Create_table_Person
+    [Migration("20231109111817_Create_table_Employee")]
+    partial class Create_table_Employee
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -28,6 +28,10 @@ namespace demomvc.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("Discriminator")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("FullName")
                         .IsRequired()
                         .HasColumnType("TEXT");
@@ -35,6 +39,26 @@ namespace demomvc.Migrations
                     b.HasKey("PersonID");
 
                     b.ToTable("Persons");
+
+                    b.HasDiscriminator<string>("Discriminator").HasValue("Person");
+
+                    b.UseTphMappingStrategy();
+                });
+
+            modelBuilder.Entity("demomvc.Models.Employee", b =>
+                {
+                    b.HasBaseType("demomvc.Models.Person");
+
+                    b.Property<int>("Age")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("EmployeeID")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.ToTable("Persons");
+
+                    b.HasDiscriminator().HasValue("Employee");
                 });
 #pragma warning restore 612, 618
         }

@@ -1,16 +1,16 @@
 using Microsoft.EntityFrameworkCore;
 using demomvc.Models;
 
-namespace demomvc.data
+namespace demomvc.Data
 {
-
     public class ApplicationDbContext : DbContext
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> option) : base(option)
-        {}
-        public DbSet<Person> Person { get;set;}
+        public ApplicationDbContext (DbContextOptions<ApplicationDbContext> options)
+            : base(options)
+        {
+        }
+        public DbSet<Person> Person { get; set; }
+        public DbSet<Employee>? Employee { get; set; }
+        
     }
-
-   
-    
-    }
+}

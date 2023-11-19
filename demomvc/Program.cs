@@ -1,4 +1,5 @@
-using demomvc.data;
+
+using demomvc.Data;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);

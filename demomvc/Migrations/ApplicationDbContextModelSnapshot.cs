@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using demomvc.data;
+using demomvc.Data;
 
 #nullable disable
 
@@ -25,6 +25,10 @@ namespace demomvc.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("Discriminator")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("FullName")
                         .IsRequired()
                         .HasColumnType("TEXT");
@@ -32,6 +36,26 @@ namespace demomvc.Migrations
                     b.HasKey("PersonID");
 
                     b.ToTable("Persons");
+
+                    b.HasDiscriminator<string>("Discriminator").HasValue("Person");
+
+                    b.UseTphMappingStrategy();
+                });
+
+            modelBuilder.Entity("demomvc.Models.Employee", b =>
+                {
+                    b.HasBaseType("demomvc.Models.Person");
+
+                    b.Property<int>("Age")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("EmployeeID")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.ToTable("Persons");
+
+                    b.HasDiscriminator().HasValue("Employee");
                 });
 #pragma warning restore 612, 618
         }

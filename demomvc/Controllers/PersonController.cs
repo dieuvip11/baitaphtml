@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using demomvc.Models;
 using Microsoft.EntityFrameworkCore; 
-using demomvc.data;
+using demomvc.Data;
 namespace demomvc.Controllers
 {
     public class PersonController : Controller
