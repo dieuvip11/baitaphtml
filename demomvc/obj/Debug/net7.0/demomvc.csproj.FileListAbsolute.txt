@@ -284,3 +284,7 @@ D:\baitapthayhien\demomvc\bin\Debug\net7.0\System.Security.Cryptography.Pkcs.dll
 D:\baitapthayhien\demomvc\bin\Debug\net7.0\runtimes\win\lib\net7.0\Microsoft.Win32.SystemEvents.dll
 D:\baitapthayhien\demomvc\bin\Debug\net7.0\runtimes\win\lib\net7.0\System.Drawing.Common.dll
 D:\baitapthayhien\demomvc\bin\Debug\net7.0\runtimes\win\lib\net7.0\System.Security.Cryptography.Pkcs.dll
+D:\baitapthayhien\demomvc\bin\Debug\net7.0\JetBrains.Annotations.dll
+D:\baitapthayhien\demomvc\bin\Debug\net7.0\X.PagedList.dll
+D:\baitapthayhien\demomvc\bin\Debug\net7.0\X.PagedList.Mvc.Core.dll
+D:\baitapthayhien\demomvc\obj\Debug\net7.0\demomvc.MvcApplicationPartsAssemblyInfo.cs

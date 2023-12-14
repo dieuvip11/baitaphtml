@@ -4,6 +4,8 @@ using Microsoft.EntityFrameworkCore;
 using demomvc.Data;
 using demomvc.Models.Process;
 using OfficeOpenXml;
+using X.PagedList;
+using Microsoft.AspNetCore.Mvc.Rendering;
 namespace demomvc.Controllers
 {
     public class PersonController : Controller
@@ -14,9 +16,21 @@ namespace demomvc.Controllers
         {
             _context = context;
         }
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int? page, int? pageSize)
         {
-            var model = await _context.Person.ToListAsync();
+            ViewBag.pageSize =new List<SelectListItem>()
+            {
+                new SelectListItem() { Value="3", Text= "3"},
+                new SelectListItem() { Value="5", Text= "5"},
+                new SelectListItem() { Value="10", Text= "10"},
+                new SelectListItem() { Value="15", Text= "15"},
+                new SelectListItem() { Value="25", Text= "25"},
+                new SelectListItem() { Value="50", Text= "50"},
+            };
+            int pagesize =(pageSize ?? 3);
+            ViewBag.psize = pageSize;
+
+            var model = _context.Person.ToList().ToPagedList(page ?? 1, pagesize);
             return View(model);
         }
           private ExcelProcess _excelPro = new ExcelProcess();
@@ -173,6 +187,7 @@ namespace demomvc.Controllers
                 return File(stream,"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",fileName);
             }
         } 
+
 
     }
 }
